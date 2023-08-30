@@ -1,0 +1,244 @@
+:root {
+  line-height: 1.2;
+
+  color-scheme: light dark;
+
+  --blue-navy: #007DF0;
+  --color-lines: #D9FFC8;
+  --light-green: #D9FFC8;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  background-color: var(--blue-navy);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+h2{
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--light-green);
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  color: var(--light-green);
+  font-size: inherit;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.filters-form{
+  padding: 20px;
+  color: var(--light-green);
+}
+.d3-tip, .d3-tip-macros, .d3-tip-meal{
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  color: var(--blue-navy);
+  filter: drop-shadow(0 2px 3px #0356A2);
+}
+
+.tooltip.ingredient-name{
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+svg{
+  /*background-color: #535bf2;*/
+  overflow: visible;
+}
+.tick text{
+  font-size: 15px;
+}
+.graph-container.ingredients .x-axis .tick text, 
+.graph-container.macros-overview .x-axis .tick text {
+  transform: translate(14px, 74px) rotate(90deg);
+}
+.bar-ingredient:hover{
+  
+}
+.ingredients-list li{
+  list-style: none;
+  margin-left: -40px;
+}
+.d3-tip .total-calories{
+  border-top: 1px solid var(--blue-navy);
+  padding-top: 10px;
+}
+.carbs rect, rect.carbs{
+  fill: url(#pattern-carbs);
+}
+.protein rect, rect.protein{
+  fill: url(#pattern-protein);
+}
+.fat rect, rect.fat{
+  fill: url(#pattern-fat);
+}
+.bold, .d3-tip .total-calories {
+  font-weight: 700;
+}
+#MainContainer{
+  display: flex;
+  margin: auto;
+  max-width: 1200px;
+}
+#Filters{
+ display: flex;
+ width: 30%;
+ justify-content: center;
+ height: 100vh;
+ align-items: center;
+}
+#FiltersContent{
+  width:300px;
+  min-height: 100px;
+  border: 1px solid var(--color-lines);
+  height: fit-content;
+  position: fixed;
+}
+#GraphsContainer{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+#GraphsContainer section{
+  flex-basis: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* GRAPHS */
+.graph-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+/* FILTERS */
+.ingredient-wrapper{
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  border-top: 1px solid var(--light-green);
+  padding-top: 9px;
+  padding-bottom: 6px;
+}
+.delete-icon{
+  position: relative;
+  top: 2px;
+}
+.ingredient-wrapper .ingredient-name{
+  font-weight: 700;
+  text-transform: uppercase;
+}
+button.add-food{
+  padding: 5px 10px;
+  border: 1px solid var(--light-green);
+  margin-bottom: 14px;
+}
+.total-calories{
+  margin-top: 70px;
+  color: var(--light-green);
+  font-weight: 700;
+  font-size: 20px;
+}
+/* RADIO BUTTONS */
+.radioButtonsContainer{
+  padding-top: 200px;
+  display: flex;
+  gap: 20px;
+  color: var(--light-green);
+  font-size: 15px;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: var(--light-green);
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: var(--light-green);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 3px;
+	left: 3px;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background: var(--blue-navy);
+}

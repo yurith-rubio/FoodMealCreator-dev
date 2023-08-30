@@ -1,0 +1,50 @@
+{
+    "ingredients": [
+        {
+            "name": "chickpeas-pasta",
+            "calories": 0,
+            "carbs": 51,
+            "protein": 22,
+            "fat": 6.1,
+            "weight": 100,
+            "measurment": "g"
+        },
+        {
+            "name": "salmon",
+            "calories": 0,
+            "carbs": 0,
+            "protein": 25,
+            "fat": 16.3,
+            "weight": 125,
+            "measurment": "g"
+        },
+        {
+            "name": "kokosmilch",
+            "calories": 0,
+            "carbs": 5.4,
+            "protein": 0.2,
+            "fat": 1.8,
+            "weight": 200,
+            "measurment": "ml"
+        },
+        {
+            "name": "protein-powder",
+            "calories": 0,
+            "carbs": 1.6,
+            "protein": 12.2,
+            "fat": 1.3,
+            "weight": 20,
+            "measurment": "g"
+        },
+        {
+            "name": "banana",
+            "calories": 0,
+            "carbs": 27.4,
+            "protein": 1.3,
+            "fat": 0.4,
+            "weight": 120,
+            "measurment": "g"
+        }
+        
+    ]
+}
