@@ -5,7 +5,8 @@ const InfoContext = createContext();
 
 function InfoProvider(props){
 
-    let [info, setInfo] = useState(IngredientsJson.ingredients);
+    const ingredientsList = IngredientsJson.ingredients;
+    let [info, setInfo] = useState([...ingredientsList]);
 
     info = info.map(item => {
         const result = {
@@ -18,13 +19,18 @@ function InfoProvider(props){
     function handleDeleteButton(ingredient){
         let updatedInfo = info.filter(i => {
             return i.name != ingredient.name;
-        })
+        });
         setInfo(updatedInfo)
+    }
+
+    function handleReload() {
+        setInfo([...ingredientsList]);
     }
 
     const value = {
         'info': info,
-        'handleDeleteButton': handleDeleteButton
+        'handleDeleteButton': handleDeleteButton,
+        'handleReload': handleReload,
     };
 
     return <>
