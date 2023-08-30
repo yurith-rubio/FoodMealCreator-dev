@@ -5,6 +5,11 @@ export default function Filters(){
     const value = useContext(InfoContext);
     const info = value.info;
     const handleDeleteButton = value.handleDeleteButton;
+    const handleReload = value.handleReload;
+
+    function handleSubmit(e) {
+        e.preventDefault();
+    }
 
     const newInfo = info.map(item => {
         const result = {
@@ -19,8 +24,8 @@ export default function Filters(){
 
     return <div id="Filters">
         <div id="FiltersContent">
-            <form className="filters-form">
-                <button type="submit" className="add-food">Reload</button>
+            <form className="filters-form" onSubmit={handleSubmit}>
+                <button className="add-food" onClick={handleReload}>Reload</button>
                 {
                     newInfo.map((ingredient, key) => {
                         return <div className="ingredient-wrapper" key={key}>

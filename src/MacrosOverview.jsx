@@ -1,8 +1,8 @@
 import {select, axisBottom, axisLeft, scaleLinear, scaleBand} from 'd3'
 import * as d3 from "d3";
 import SectionHeading from './SectionHeading.jsx'
-import { useContext, useRef, useState, useEffect } from 'react'
-import { InfoContext } from "./InfoContext.jsx";
+import {useContext, useRef, useState, useEffect} from 'react'
+import {InfoContext} from "./InfoContext.jsx";
 import d3Tip from "d3-tip";
 
 export default function MacrosOverview() {
@@ -13,7 +13,7 @@ export default function MacrosOverview() {
 
     useEffect(() => {
         const svg = select(svgRef.current);
-        const highestBar = d3.max(info, function(item) {
+        const highestBar = d3.max(info, function (item) {
             return item[macro];
         });
 
@@ -21,17 +21,17 @@ export default function MacrosOverview() {
             .domain(info.map((value) => value.name))
             .range([0, 500])
             .padding(.6, 0)
-        
+
         const xAxis = axisBottom(xScale)
             .ticks(info.length)
-        
+
         const yScale = scaleLinear()
             .domain([0, highestBar])
             .rangeRound([500, 0])
 
         const yAxis = axisLeft(yScale)
             .ticks(5)
-            
+
         svg
             .attr("width", 500)
             .attr("height", 500)
@@ -73,14 +73,14 @@ export default function MacrosOverview() {
             .on("mouseover", tooltip.show)
             .on("mouseleave", tooltip.hide)
 
-    },  [macro, info])
+    }, [macro, info])
 
     function handleRadioInput(event) {
         setMacro(event.target.value);
     }
 
     return <section>
-        <SectionHeading title="Macros Overview" />
+        <SectionHeading title="Macros Overview"/>
         <div className="graph-container macros-overview">
             <svg ref={svgRef}>
                 <g className="x-axis"></g>
@@ -90,21 +90,22 @@ export default function MacrosOverview() {
             <div className="radioButtonsContainer">
                 <label className="container" htmlFor="carbs-input">
                     Carbs
-                    <input type="radio" id="carbs-input" name="macros" value="carbs" onChange={handleRadioInput} />
+                    <input type="radio" id="carbs-input" name="macros" value="carbs" onChange={handleRadioInput}
+                           defaultChecked/>
                     <span className="checkmark"></span>
                 </label>
                 <label className="container" htmlFor="protein-input">
                     Protein
-                    <input type="radio" id="protein-input" name="macros" value="protein" onChange={handleRadioInput} />
+                    <input type="radio" id="protein-input" name="macros" value="protein" onChange={handleRadioInput}/>
                     <span className="checkmark"></span>
                 </label>
-                
+
                 <label className="container" htmlFor="fat-input">
                     Fat
-                    <input type="radio" id="fat-input" name="macros" value="fat" onChange={handleRadioInput} />
+                    <input type="radio" id="fat-input" name="macros" value="fat" onChange={handleRadioInput}/>
                     <span className="checkmark"></span>
                 </label>
-                
+
             </div>
         </div>
     </section>
